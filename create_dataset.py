@@ -92,7 +92,10 @@ class Create_dataset:
     
     
     def save_dataset(self):
-        path = 'dataset/' + self.curr + 'JPY/data_' + str(self.train_number) + '_' + str(self.predict_number) + '_' + str(self.delay_number) + '_' + str(self.window) +'_split.pickle'
+        if self.split==True:
+            path = 'dataset/' + self.curr + 'JPY/data_' + str(self.train_number) + '_' + str(self.predict_number) + '_' + str(self.delay_number) + '_' + str(self.window) +'_split.pickle'
+        else:
+            path = 'dataset/' + self.curr + 'JPY/data_' + str(self.train_number) + '_' + str(self.predict_number) + '_' + str(self.delay_number) + '_' + str(self.window) +'.pickle'
         with open(path, 'wb') as f:
             pickle.dump(self.dataset, f)
             
